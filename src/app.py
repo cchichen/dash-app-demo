@@ -10,13 +10,18 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 import dash_bootstrap_components as dbc
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
-YOUR_API_KEY = "GMPPMUX6RFI4TCST"
+key = "ALPHAVANTAGE_API_KEY"
+apiKey = os.getenv(key)
+# print(apiKey)
 
-ts = TimeSeries(YOUR_API_KEY, output_format='pandas')
+ts = TimeSeries(apiKey, output_format='pandas')
 
-CSV_URL = 'https://www.alphavantage.co/query?function=LISTING_STATUS&apikey={YOUR_API_KEY}'
+CSV_URL = 'https://www.alphavantage.co/query?function=LISTING_STATUS&apikey={apiKey}'
 
 with requests.Session() as s:
     download = s.get(CSV_URL)
@@ -49,7 +54,7 @@ app.layout = html.Div([
     # html.Div(className="menu-item2",children=[dcc.Dropdown(symbols[1:], "UNP", id='stock-dropdown1', clearable=False)]),]),
 
     dbc.Container([
-    dbc.Row([dbc.Col(dcc.Dropdown(symbols[1:], "UNP", id='stock-dropdown',clearable=False)), dbc.Col(dcc.Dropdown(symbols[1:], "UNP", id='stock-dropdown1',clearable=False))])
+    dbc.Row([dbc.Col(dcc.Dropdown(symbols[1:], "UNP", id='stock-dropdown',clearable=False)), dbc.Col(dcc.Dropdown(symbols[1:], "UNL", id='stock-dropdown1',clearable=False))])
     ]),
     
 
