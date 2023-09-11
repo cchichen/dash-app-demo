@@ -33,7 +33,7 @@ with requests.Session() as s:
     for row in my_list:
        symbols.append(row[0])
     #    print(row)
-    # print(symbols)
+    print(symbols)
 
 # # get time series for a specific symbol
 # ts = TimeSeries(key=YOUR_API_KEY)
