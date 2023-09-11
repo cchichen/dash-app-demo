@@ -1,0 +1,19 @@
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "a b";
+  background-color: blueviolet;
+}
+
+.menu-item {
+  grid-area: a;
+  text-align: center;
+  font-size: 20px;
+}
+
+.menu-item2 {
+  grid-area: b;
+  text-align: center;
+  font-size: 20px;
+}
